@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import "./styles/index.css";
+import App from "./components/App";
+import employee_data from "./EmployeeData.js";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App employee_data={employee_data} />
   </React.StrictMode>,
   document.getElementById("root")
 );
