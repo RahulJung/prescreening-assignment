@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/App.css";
+import EmployeeList from "./EmployeeList.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -7,14 +8,9 @@ class App extends React.Component {
     this.state = {};
   }
   render() {
-    console.log(this.props.employee_data);
     return (
       <div className="App">
-        <div>
-          {this.props.employee_data.map((item, idx) => {
-            return <li> {item.name}</li>;
-          })}
-        </div>
+        <EmployeeList data={this.props.employee_data} />
       </div>
     );
   }
