@@ -36,8 +36,9 @@ class Navbar extends React.Component {
   render() {
     // Filter employee list
     let filteredItem = this.props.data.filter((data) => {
+      console.log(data.age);
       if (data.age >= this.state.age[0] && data.age <= this.state.age[1]) {
-        return;
+        return data.age >= this.state.age[0] && data.age <= this.state.age[1];
       }
       if (
         data.department
