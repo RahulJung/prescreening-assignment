@@ -1,8 +1,6 @@
 import React from "react";
 import "../styles/App.css";
-// import { Button } from "react-bootstrap";
-// import React from "react";
-import { Table, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import DepartmentFilter from "./DepartmentFilter.js";
 import AgeFilter from "./AgeFilter.js";
 class Navbar extends React.Component {
@@ -18,27 +16,25 @@ class Navbar extends React.Component {
   }
 
   updateSearch(event) {
-    console.log("update search");
     this.setState({
       search: event.target.value,
     });
   }
 
   updateChange(value) {
-    console.log("update change");
     this.setState({
       search: value.value,
     });
   }
 
   updateAge(value) {
-    console.log("update age");
     this.setState({
       age: value.value,
     });
   }
 
   render() {
+    // Filter employee list
     let filteredItem = this.props.data.filter((data) => {
       if (data.age >= this.state.age[0] && data.age <= this.state.age[1]) {
         return;
@@ -64,16 +60,20 @@ class Navbar extends React.Component {
       }
     });
     return (
-      <div>
+      <div className="container">
         <div className="navBar">
           <div className="logoContainer">
             <div className="logo">Employee List</div>
           </div>
-          <div>
+          <div className="btnContainers">
             <ul className="links">
               <li>
                 <div className="item ">
-                  <input type="text" onChange={this.updateSearch}></input>
+                  <input
+                    type="text"
+                    onChange={this.updateSearch}
+                    placeholder="Search Employee"
+                  ></input>
                 </div>
               </li>
               <li className="filter">
@@ -81,22 +81,6 @@ class Navbar extends React.Component {
               </li>
               <li className="filter">
                 <AgeFilter onChange={this.updateAge} />
-              </li>
-              {/* <li>
-              <a className="item " href="#">
-                <Button>Add Employee</Button>
-              </a>
-            </li> */}
-              <li className="item ">
-                <a href="#">
-                  <Button
-                    onClick={() => window.print()}
-                    type="button"
-                    className="btn"
-                  >
-                    Print Collection{" "}
-                  </Button>
-                </a>
               </li>
             </ul>
           </div>
