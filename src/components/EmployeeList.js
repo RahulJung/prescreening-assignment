@@ -18,42 +18,12 @@ class EmployeeList extends React.Component {
 
   render() {
     let filteredItem = this.props.data.filter((data) => {
-      return data.name.toLowerCase().indexOf(this.state.search) !== -1;
+      return (
+        data.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+      );
     });
     return (
       <div>
-        <div>
-          <h2>Product List</h2>
-          <Table>
-            <thead>
-              <tr>
-                <th>Full Name</th>
-                <th>Department</th>
-                <th>Age</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredItem.map((item, idx) => (
-                <tr key={idx}>
-                  <td>{item.name}</td>
-                  <td>{item.department}</td>
-                  <td>{item.age}</td>
-                  <td>
-                    <Button
-                      //   variant="info"
-                      //   onClick={() => this.props.editProduct(item.name)}
-                      Hello
-                    >
-                      Edit
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
-
         <div>
           <input
             type="text"
@@ -61,6 +31,28 @@ class EmployeeList extends React.Component {
             onChange={this.updateSearch}
           ></input>
         </div>
+        <Table>
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Department</th>
+              <th>Age</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredItem.map((item, idx) => (
+              <tr key={idx}>
+                <td>{item.name}</td>
+                <td>{item.department}</td>
+                <td>{item.age}</td>
+                <td>
+                  <Button>Delete</Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     );
   }
