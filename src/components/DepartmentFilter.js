@@ -17,19 +17,9 @@ class DepartmentFilter extends React.Component {
       data: employee_data,
       departments: [],
     };
-    this.getUniqueDepartments = this.getUniqueDepartments.bind(this);
-  }
-
-  getUniqueDepartments(list) {
-    let set = new Set();
-    list.forEach((element) => {
-      set.add(element.department);
-    });
-    return set;
   }
 
   render() {
-    const uniqueDepartment = this.getUniqueDepartments(this.state.data);
     return (
       <div>
         <Select
