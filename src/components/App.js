@@ -1,8 +1,6 @@
 import React from "react";
 import "../styles/App.css";
-
 import Navbar from "./Navbar.js";
-import EmployeeList from "./EmployeeList.js";
 
 class App extends React.Component {
   constructor(props) {
