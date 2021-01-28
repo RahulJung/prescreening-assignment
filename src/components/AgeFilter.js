@@ -1,7 +1,6 @@
 import React from "react";
 import Select from "react-select";
 import "../styles/App.css";
-import employee_data from "../EmployeeData.js";
 
 const options = [
   { value: [17, 69], label: "Filter By Age" },
@@ -16,23 +15,10 @@ const options = [
 class AgeFilter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: employee_data,
-      departments: [],
-    };
-    this.getUniqueDepartments = this.getUniqueDepartments.bind(this);
-  }
-
-  getUniqueDepartments(list) {
-    let set = new Set();
-    list.forEach((element) => {
-      set.add(element.department);
-    });
-    return set;
+    this.state = {};
   }
 
   render() {
-    const uniqueDepartment = this.getUniqueDepartments(this.state.data);
     return (
       <div>
         <Select
